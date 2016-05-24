@@ -49,7 +49,7 @@ git submodule foreach git submodule update --recursive --init
 # --
 
 setup(
-    name="XXXX",
+    name="liteXXX",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     description="Python tools to design FPGA cores and SoCs",

@@ -1,0 +1,2 @@
+include liteXXX/_version.py
+include versioneer.py

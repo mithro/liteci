@@ -18,6 +18,7 @@ addons:
 
 setup:
   - git fetch --unshallow && git fetch --tags
+  - git describe
 
 script:
   - python setup.py test

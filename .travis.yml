@@ -1,8 +1,8 @@
 language: python
 python:
   - "3.3"
-  - "3.4"
-  - "3.5"
+#  - "3.4"
+#  - "3.5"
 
 # Don't do CI for WIP branches
 branches:
@@ -23,3 +23,4 @@ setup:
 script:
   - python setup.py test
   - python setup.py install
+  - python setup.py pep8

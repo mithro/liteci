@@ -11,6 +11,10 @@ branches:
     - /^legacy$/
 
 sudo: false
+addons:
+  apt:
+    packages:
+    - libsdl-dev
 
 setup:
   - git fetch --unshallow && git fetch --tags

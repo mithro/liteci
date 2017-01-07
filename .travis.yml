@@ -17,7 +17,8 @@ addons:
     - libsdl-dev
 
 before_install:
-  - git fetch --unshallow && git fetch --tags
+  - if [ .git/shallow ]; then git fetch --unshallow; fi
+  - git fetch --tags
   - git describe
 
 script:

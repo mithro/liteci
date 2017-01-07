@@ -16,7 +16,7 @@ addons:
     packages:
     - libsdl-dev
 
-setup:
+before_install:
   - git fetch --unshallow && git fetch --tags
   - git describe
 

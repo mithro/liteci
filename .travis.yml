@@ -17,9 +17,7 @@ addons:
     - libsdl-dev
 
 before_install:
-  - git fetch --unshallow || true
-  - git fetch --tags
-  - git describe
+  - .travis/git-setup.sh
 
 script:
   - python setup.py test

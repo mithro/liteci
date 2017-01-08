@@ -3,13 +3,19 @@ if -z "$TOP_DIR"; then
 fi
 
 BUILD_DIR=$TOP_DIR/build
-CONDA_DIR=$BUILD_DIR/conda
 
 # Conda package versions
 BINUTILS_VERSION=2.26
 GCC_VERSION=4.9.3
 
-# FPGA compiling toolchains
+# CPU architectures which support is needed.
+ARCHS="
+	lm32
+	or1k
+	riscv
+	"
+
+# FPGA toolchains which need installing.
 FPGA_TOOLCHAINS="
 	yosys
 	xilinx-ise
@@ -19,7 +25,7 @@ FPGA_TOOLCHAINS="
 	sim
 	"
 
-# lite modules
+# lite modules which are needed
 LITE_REPOS="
 	litex
 	litedram

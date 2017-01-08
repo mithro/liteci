@@ -3,7 +3,6 @@
 ARCH="$1"
 
 set -e
-set -x
 
 echo ""
 echo "Install modules from conda for ${ARCH}"

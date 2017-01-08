@@ -24,8 +24,3 @@ fi
 set -e
 
 source $TRAVIS_DIR/settings.sh
-
-# Check the build dir
-if [ ! -d $BUILD_DIR ]; then
-	mkdir -p $BUILD_DIR
-fi

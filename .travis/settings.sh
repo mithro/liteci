@@ -1,8 +1,12 @@
-if -z "$TOP_DIR"; then
+if [ -z "$TOP_DIR" ]; then
 	echo "Including script must set TOP_DIR=value"
+	return 1
 fi
 
 BUILD_DIR=$TOP_DIR/build
+if [ ! -d $BUILD_DIR ]; then
+	mkdir -p $BUILD_DIR
+fi
 
 # Conda package versions
 BINUTILS_VERSION=2.26
@@ -12,8 +16,8 @@ GCC_VERSION=4.9.3
 ARCHS="
 	lm32
 	or1k
-	riscv
 	"
+#	riscv
 
 # FPGA toolchains which need installing.
 FPGA_TOOLCHAINS="

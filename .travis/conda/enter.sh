@@ -22,3 +22,5 @@ if [ $SOURCED = 0 ]; then
 fi
 
 source $TRAVIS_DIR/settings.sh
+
+alias python=python3

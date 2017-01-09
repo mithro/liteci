@@ -44,12 +44,15 @@ export PATH=$CONDA_DIR/bin:$PATH
         conda config --add channels timvideos
 )
 
-ln -sf \
-	$TRAVIS_DIR/conda/fetch-tools-arch.sh \
-	$CONDA_DIR/bin/fetch-tools-arch
+for TOOL in fetch-tools-arch check-tools-arch; do
+	ln -sf \
+		$TRAVIS_DIR/conda/$TOOL.sh \
+		$CONDA_DIR/bin/$TOOL
+done
 
 for ARCH in $ARCHS; do
 	fetch-tools-arch $ARCH
+	check-tools-arch $ARCH || exit 1
 done
 
 echo "export PATH=$CONDA_DIR/bin:$PATH"

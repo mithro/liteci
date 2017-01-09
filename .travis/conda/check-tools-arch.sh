@@ -1,5 +1,9 @@
 #!/bin/bash
 
+ARCH="$1"
+
+set -e
+
 if [ "`whoami`" = "root" ]
 then
     echo "Running the script as root is not permitted"
@@ -15,22 +19,15 @@ SCRIPT_DIR=$(dirname $SCRIPT_SRC)
 TRAVIS_DIR=$(realpath $SCRIPT_DIR/..)
 TOP_DIR=$(realpath $TRAVIS_DIR/..)
 
-if [ $SOURCED = 0 ]; then
-	echo "You must source this script, rather then try to run it."
+if [ $SOURCED = 1 ]; then
+	echo "You must run this script, rather then try to source it."
 	echo "$SCRIPT_SRC"
-	exit 1
+	return
 fi
 
 source $TRAVIS_DIR/settings.sh
+source $TRAVIS_DIR/shell/check.sh
 
-echo ""
-echo "Checking modules from conda"
-echo "---------------------------"
-CONDA_DIR=$PWD/build/conda
-export PATH=$CONDA_DIR/bin:$PATH
-for ARCH in $ARCHS; do
-
-	check-tools-arch $ARCH || return 1
-done
-
-alias python=python3
+check_version ${ARCH}-elf-ld ${BINUTILS_VERSION}
+check_version ${ARCH}-elf-gcc ${GCC_VERSION}
+#check_version ${ARCH}-elf-gdb ${GDB_VERSION}

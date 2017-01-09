@@ -5,6 +5,11 @@ language:
 compiler:
   - gcc
 
+# We are going to undo the shallow clone as the first step, so just clone it at
+# depth 1.
+git:
+  depth: 1
+
 # Don't do CI for WIP branches
 branches:
   except:

@@ -51,3 +51,5 @@ ln -sf \
 for ARCH in $ARCHS; do
 	fetch-tools-arch $ARCH
 done
+
+echo "export PATH=$CONDA_DIR/bin:$PATH"

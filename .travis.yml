@@ -1,8 +1,9 @@
-language: python
-python:
-  - "3.3"
-#  - "3.4"
-#  - "3.5"
+# We use a minimal image, as we install Python from conda
+language:
+ - c
+
+compiler:
+  - gcc
 
 # Don't do CI for WIP branches
 branches:
@@ -20,7 +21,11 @@ addons:
 before_install:
   - .travis/setup-git.sh
 
+install:
+  - .travis/conda/setup.sh
+
 script:
+  - . travis/conda/enter.sh
   - python setup.py test
   - python setup.py install
   - python setup.py pep8

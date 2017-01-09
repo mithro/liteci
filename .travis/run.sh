@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -ex
 
 . .travis/conda/enter.sh
 

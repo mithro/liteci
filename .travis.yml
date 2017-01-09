@@ -25,7 +25,7 @@ install:
   - .travis/conda/setup.sh
 
 script:
-  - . travis/conda/enter.sh
+  - . .travis/conda/enter.sh
   - python setup.py test
   - python setup.py install
   - python setup.py pep8

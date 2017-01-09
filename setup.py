@@ -10,6 +10,7 @@ import versioneer
 
 # --
 
+
 def check_submodules(basedir):
     try:
         modules = open(os.path.join(basedir, ".gitmodules")).read()
